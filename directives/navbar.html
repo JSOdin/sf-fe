@@ -1,0 +1,43 @@
+<md-toolbar class="md-whiteframe-4dp navbar-steambuddy" layout="row" layout-align="space-around" >
+
+    <div hide-sm hide-xs class="steambuddy-brand" flex="30" flex-lg="30" flex-md="50" layout="row" layout-align="start center">
+       <!-- <md-icon class="steamlogo" md-font-icon="icon-steam2"></md-icon>
+        <a href="/find-steam-games">Steam Friends</a>-->
+        <a href="/" style="display:inline-block; height:39px;"><img ng-src="/images/logo.png" style="height:39px;" /></a>
+
+    </div>
+
+
+    <div layout="row" flex-xs="100" flex-sm="100" flex-md="50" layout-align-xs="center center" layout-align-sm="end center" layout-align-md="end center">
+        <div offset="5" layout="row" layout="row" layout-align="center center" ng-show="!loggedin">
+            <form action="/auth/steam" method="POST" ng-hide="loggedin">
+                    <input class="login-btn" name="submit" type="image" src="/images/steamlogin.png"/>
+            </form>
+        </div>
+        <div class="notifications-icon-container" ng-show="loggedin">
+           <md-icon ui-sref="notifications" class="alert-icons">feedback</md-icon>
+            <sup ng-if="unreadNoticesCount" >
+                <!--<span class="messages-counter messages-counter-notices">{{unreadNoticesCount}}</span>z-->
+            </sup>
+        </div>
+        <div class="conversations-icon-container"  ng-show="loggedin">
+            <span  class="icon-mail alert-icons" ui-sref="conversations"></span>
+            <sup ng-if="unreadMessagesCount">
+                <span class="messages-counter messages-counter-messages">{{unreadMessagesCount}}</span>
+            </sup>
+        </div>
+        <div flex-xs="30" flex-sm="15" flex-md="20" layout="row" class="nav-settings-btn" layout-align="start center" ng-show="loggedin">
+            <md-button type="submit" class="md-primary md-raised" href="/settings">Settings <md-icon hide-xs>settings</md-icon></md-button>
+        </div>
+        <div flex-xs="30" flex-sm="15" flex-md="20" layout="row" layout-align="start center" ng-show="loggedin" class="navbar-logout">
+            <form action="/auth/logout" method="POST">
+                <md-button type="submit" class="md-primary md-raised"> Logout <md-icon hide-xs class="material-icons">directions</md-icon></md-button>
+            </form>
+        </div>
+    </div>
+</md-toolbar>
+<!-- <div style="position:absolute; top:6px; right:520px; z-index: 10; background-color: rgba(0,0,0,0.2); padding: 3px 10px; color:white; border-radius: 3px;" ng-show="visible">
+        <md-icon style="color:rgba(255,255,255,0.5);">warning</md-icon>
+        Please complete your profile for a better matching experience.
+        <md-button class="md-icon-button" ng-click="closeNotice()"><md-icon>clear</md-icon></md-button>
+    </div>-->

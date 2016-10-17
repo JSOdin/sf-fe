@@ -1,0 +1,31 @@
+(function(){
+
+    angular.module('myapp').factory('FBChecker',FBChecker);
+
+    FBChecker.$inject = ['$timeout', '$rootScope'];
+
+    function FBChecker($timeout, $rootScope){
+        var svc = {};
+        var fbReady = false;
+
+        function checkFB(){
+            if (FB==undefined){
+                fbReady = false;
+                console.log("ngFB: FB is undefined");
+                $timeout(checkFB, 250);
+
+            } else {
+                fbReady = true;
+                console.log("ngFB: FB is defined");
+                $rootScope.$broadcast('ngFBReady',{});
+            }
+        }
+
+        svc.fbReady = function(){
+            checkFB();
+            return fbReady;
+        };
+
+        return svc;
+    }
+})();

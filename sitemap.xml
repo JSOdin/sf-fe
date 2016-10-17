@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- www.check-domains.com sitemap generator -->
+
+    <url>
+        <loc>https://steamfriends.net/</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/find-steam-games</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/find-steam-friends</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/notifications</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/steam-friends-privacy-policy</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/steam-friends-disclaimer</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/steam-friends-contact-us</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+    <url>
+        <loc>https://steamfriends.net/steam-friends-about-us</loc>
+        <lastmod>2015-12-22T00:57:43+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+    </url>
+</urlset>
+

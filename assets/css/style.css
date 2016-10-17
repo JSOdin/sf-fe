@@ -1,0 +1,2103 @@
+/***** margin:auto doesnt work well with IE11. also define all the layouts whenever you can or layout will all be broken. **/
+
+/** game panels appearing animation - first time site load**/
+
+
+.highlight-panel:hover {
+
+    background-color: rgba(77, 102, 138,0.3);
+
+}
+
+.games-input-box {
+    border: 2px solid rgba(66,66,66,0.2);
+    border-radius: 1px;
+}
+
+.game-repeat-blocks {
+
+    position: relative;
+   /* height: 290px;*/
+    height:117px;
+    /*background-color: #dfe3e5;*/
+   /*background-color: rgba(17,51,128,0.4);*/
+}
+
+.game-input > input {
+    color: white;
+}
+
+/*.game-repeat-blocks::after{
+    opacity:0.5;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+
+}*/
+
+/*.game-repeat-blocks-pic {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 70px;
+    height: 70px;
+    margin: -35px 0 0 -35px;
+   !* border-radius: 35px;
+    border: 5px solid rgba(66,66,66,0.1);*!
+    text-align: center;
+}
+
+.game-repeat-blocks-pic > i {
+    font-size: 1.5em;
+
+  !*  text-shadow: 0 -4px 3px rgba(255, 255, 255, 0.3), 0 3px 4px rgba(0, 0, 0, 0.2);
+    color: #d7dee1;                                                                         emboss effect  *!
+    !*text-shadow: 0 2px 3px rgba(255, 255, 255, 0.3), 0 -1px 2px rgba(0, 0, 0, 0.2); *!      !* deboss effect first shadow is white with opacity and second is black with opacity*!
+    !*color: #d7dee1;*!
+
+    text-shadow: 0 2px 3px rgba(255,255,255,0.3), 0 -1px 2px rgba(59,92,168,0.2);
+    color: rgba(17,51,128,0.2);
+
+}*/
+
+.game-repeat-blocks-header {
+    /*text-shadow: 0 2px 3px rgba(255,255,255,0.3), 0 -1px 2px rgba(59,92,168,0.2);*/
+    color: rgba(255,255,255,1);
+   /* margin-top: 150px;*/
+    text-align: center;
+    word-wrap: break-word;                                                                   /* only works with a width set */
+    padding: 5px;
+    width: 100%;
+    z-index:100;
+}
+
+.game-repeat-blocks.ng-enter {
+    /** game panel animation when enter (first time website load). angular inserts ng-enter when element appears on the DOM **/
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.game-repeat-blocks.ng-enter-active {
+    /** the final state of the animation **/
+
+    opacity:1;
+}
+
+/** game panels appearing/vanishing animation - after first time load and querying **/
+
+
+.game-panels-add-opacity {
+    /** the gradual dimming of existing panels when ng-model change **/
+
+    opacity:0.4;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.game-panels-vanish-when-data-zero {
+    /** if no data received from query, vanish existing panels **/
+
+    opacity:0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+@-webkit-keyframes game-panels-add-opacity-on-enter {
+    /** animation for when game panels already exist on the view, and new panels come in **/
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes game-panels-add-opacity-on-enter {
+    /** animation for when game panels already exist on the view, and new panels come in **/
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.game-panels-add-opacity-on-enter {
+    /** animation for when game panels already exist on the view, and new panels come in **/
+
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: game-panels-add-opacity-on-enter;
+    animation-name: game-panels-add-opacity-on-enter;
+}
+
+.game-input {
+    margin-bottom: 0;
+}
+
+/** from material angular **/
+/** top navbar **/
+
+.steambuddy-brand{
+    font-size: 1em;
+    padding-top:0;
+    padding-bottom:0;
+    padding-left: 10px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    vertical-align: bottom;
+    display:inline-block;
+    margin-top: 10px;
+}
+
+.twitter-share-button {
+    margin-bottom:11px;
+
+}
+
+.steambuddy-brand > a{
+    text-decoration:none;
+    color: white;
+}
+
+.notifications-icon-container, .conversations-icon-container {
+    position:relative;
+    width: 45px;
+    display:inline-block;
+}
+
+.notifications-icon-container {
+    padding: 14px 5px 10px 5px;
+}
+
+.conversations-icon-container {
+    padding: 18px 5px 10px 5px
+}
+
+.messages-counter {
+    position: absolute;
+    padding: 5px;
+    font-size:0.7em;
+
+    text-align: center;
+    display:block;
+    width:20px;
+    height: 20px;
+    background-color:rgb(255,64,129);
+    border-radius:1px; color:white;
+}
+
+.messages-counter-notices {
+    top: 3px;
+    left: 22px;
+}
+
+.messages-counter-messages {
+    top: 5px;
+    left: 18px;
+}
+
+.alert-icons {
+    height:24px;
+    width: 24px;
+}
+
+.navbar-steambuddy > div, md-toolbar.navbar-steambuddy{
+    min-height:49px;
+}
+
+.navbar-logout{
+    margin-left: 7px;
+}
+
+.navbar-button {
+    width: 20px;
+}
+
+.nav-settings-btn .md-ripple-container{
+   display:none;
+}
+
+/*@media screen and (min-width:683px) and (max-width:958px){
+    .messages-counter {
+        margin-left: -12px;
+    }
+}*/
+
+#twitter-widget-0 {
+    top: -16px;
+}
+
+
+
+
+/** icon fonts from icomoon **/
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?grwupq');
+    src:    url('../fonts/icomoon.eot?grwupq#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?grwupq') format('truetype'),
+    url('../fonts/icomoon.woff?grwupq') format('woff'),
+    url('../fonts/icomoon.svg?grwupq#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-envelope:before {
+    content: "\e91e";
+}
+.icon-reddit-alien:before {
+    content: "\e91d";
+}
+.icon-arrow_forward:before {
+    content: "\e91c";
+}
+.icon-check-square:before {
+    content: "\e91b";
+}
+.icon-users:before {
+    content: "\e900";
+}
+.icon-search:before {
+    content: "\e919";
+}
+.icon-arrow-right-alt1:before {
+    content: "\e911";
+}
+.icon-arrow-left-alt1:before {
+    content: "\e912";
+}
+.icon-circle-left:before {
+    content: "\e909";
+}
+.icon-circle-right:before {
+    content: "\e90a";
+}
+.icon-pacman:before {
+    content: "\e907";
+}
+.icon-dice:before {
+    content: "\e908";
+}
+.icon-mail:before {
+    content: "\e903";
+}
+.icon-steam2:before {
+    content: "\e902";
+}
+.icon-steam:before {
+    content: "\e901";
+}
+.icon-arrow-right:before {
+    content: "\e91a";
+}
+.icon-arrow-left:before {
+    content: "\e910";
+}
+.icon-chat-3:before {
+    content: "\e915";
+}
+.icon-chat:before {
+    content: "\e914";
+}
+.icon-settings:before {
+    content: "\e905";
+}
+.icon-arrow-circle-o-left:before {
+    content: "\e90d";
+}
+.icon-arrow-circle-o-right:before {
+    content: "\e90e";
+}
+.icon-paper-plane:before {
+    content: "\e918";
+}
+.icon-chat2:before {
+    content: "\e916";
+}
+.icon-arrow-with-circle-right:before {
+    content: "\e90b";
+}
+.icon-arrow-with-circle-left:before {
+    content: "\e90c";
+}
+.icon-chat3:before {
+    content: "\e917";
+}
+.icon-plus:before {
+    content: "\e913";
+}
+.icon-gamepad:before {
+    content: "\e906";
+}
+.icon-mail3:before {
+    content: "\e90f";
+}
+.icon-mail2:before {
+    content: "\e904";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** main menu **/
+
+.top-menu-icon-steam {
+    font-size: 2em;
+    color: rgba(162,162,162,0.8);
+}
+
+.top-menu-header {
+    color: rgba(38,37,37,0.6);
+    text-align:center;
+}
+
+.material-icons-games, .material-icons-public, .material-icons-tag-faces, .material-icons-schedule, .material-icons-build, .icon-settings {
+    font-size: 2em;
+    color: rgba(38,37,37,0.8);
+}
+
+.menu-box p{
+    color: white;
+}
+
+.menu-box i {
+    color: rgba(255,255,255,0.5);
+}
+
+.menu-btn, .user-posts-game-specific-fields-h4 {
+    padding-top:10px;
+    padding-bottom:10px;
+    text-shadow: 0 1px #303F74;
+    background-color: rgba(48, 63, 116,0.6);
+    background-clip: padding-box;
+    border: 1px solid;
+    border-color: #303F74 #162455 #162455;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0.12) 77%, rgba(0, 0, 0, 0.04));
+}
+
+.menu-box {
+    padding-bottom: 15px;
+
+}
+
+/** search bar left **/
+
+.search-form-card label{
+    color: rgba(38,37,37,0.8);
+}
+
+md-autocomplete.search-form-autocomplete  input{
+    margin-top: 10px;
+}
+
+
+/** pagination buttons **/
+
+.pagination-container{
+    margin-bottom: 35px;
+}
+
+.pagination-container md-icon {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.pagination-container > button[disabled='disabled'] > md-icon {
+    color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+/** users page **/
+
+.users-toast{
+    position: absolute;
+    top:-60px;
+}
+
+.user-card {
+    position:relative;
+    height:390px;
+}
+
+.user-card-avatar{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    left: 50%;
+    top: 32.7885%;
+    margin: -25px 0 0 -25px;
+    border: 1px solid grey;
+    border-radius: 25px;
+}
+
+.user-card-username-h3 {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 0;
+    text-align:center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+    display:inline-block;
+}
+
+.user-card-username-h3 > a {
+    color: rgba(0,0,0,0.87);
+    text-decoration:none;
+}
+
+.user-card-username-h3 > a:hover {
+    color: rgba(0,0,0,0.4);
+}
+
+.user-card-country-language {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    opacity: 0.5;
+    font-family: "Droid sans",sans-serif;
+    font-size: 0.9em;
+}
+
+
+.user-card-recentlyPlayed{
+    width: 23.2%;
+    height:100%;
+    padding: 0;
+    margin-right: 3px;
+   /* opacity: 1;
+    margin-left: 2px;*/
+}
+
+.spinner-gif {
+    display:block;
+    margin:0 auto;
+    width: 38px;
+    height: 38px;"
+}
+
+.user-status-container {
+   padding-top: 3px;
+    padding-right: 6px;
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+    position:relative;
+}
+
+.user-status-img {
+
+
+}
+
+.users-wrapper {
+    margin-bottom: 20px;
+}
+
+.users-pagination {
+    margin-bottom: 25px;
+}
+
+.user-card-add-steam-btn{
+    background-color: rgba(66,66,66,1);
+}
+
+.user-card-solo-mmr-h5{
+    opacity: 0.7;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.user-card-solo-mmr-p {
+    margin-top: 0;
+    opacity: 0.5;
+    font-size: 0.8em;
+    margin-bottom: 0;
+}
+
+.user-card-recentlyPlayed-wrapper {
+ /*   height: 47px;*/
+    width:100%;
+    height: 47px;
+}
+
+.user-card-upper-panel{
+    background-color:rgba(48, 63, 116,0.8) !important;
+    height: 32.7885%;
+}
+
+.user-card-summary {
+    margin-top: 0;
+}
+
+.not-found-text {
+    color: rgba(162,162,162,0.6);
+}
+
+p.not-found-text {
+    padding: 30px;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+
+/** private settings page for signup **/
+
+.private-settings-arrow {
+    font-size: 5em;
+    color: rgba(160,160,160,0.5);
+}
+
+.private-settings-explain-box {
+    width:500px;
+}
+
+@media screen and (max-width:638px){
+    .private-settings-explain-box {
+        width: 80%;
+    }
+}
+
+.private-settings-why {
+    color:#00d6b2;
+}
+
+.private-settings-link {
+    color: #00d6b2;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.private-settings-link:hover {
+    color: #00d6b2;
+}
+
+/*@media screen and (max-width: 960px){
+    .priv-img{
+        width: 60%;
+    }
+}*/
+
+/** initial signup page **/
+
+/** general **/
+
+.md-button {text-transform: none;}
+
+html{
+    min-height:100%;
+}
+
+body {
+    min-height:100%;
+    height:auto;
+    background: #515F90;
+    background: -moz-radial-gradient(50% 50% 0deg, #515F90, #000 100%);
+    background-image: -webkit-gradient(radial, center center, 0, center center, 141, from(#515F90), to(#000));
+    background-image: -webkit-radial-gradient(center center, circle, #515F90 0%, #000 100%);
+    background-image: -moz-radial-gradient(50% 50% 0deg, #515F90, #000 100%);
+    background-image: -ms-radial-gradient(center center, circle, #515F90 0%, #000 100%);
+    background-image: -o-radial-gradient(center center, circle, #515F90 0%, #000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@bgGrad1', endColorstr='#@bgGrad2', GradientType=1);
+
+
+    /*background-color: rgba(162,162,162,0.3);*/
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5); /
+}
+
+
+body.md-dialog-is-showing {
+    min-height:100%;
+    height:auto;
+
+}
+
+
+.menu {
+    background-color: white;
+}
+
+.md-accent {
+    background-color: rgb(226, 42, 81) !important;
+}
+
+md-option {
+    background-color:rgba(188,143,143,.09) !important;
+
+}
+
+md-select-menu > md-content {
+    padding-top:0 !important;
+    padding-bottom: 0 !important;
+}
+
+md-autocomplete.initial-autocomplete  input{
+    margin-top: 10px;
+}
+
+
+
+
+/** conversations page **/
+
+.conversation-profile-link:link, .conversation-profile-link:visited, .conversation-profile-link:active, .conversation-profile-link:hover,
+.conversation-messages-link:link, .conversation-messages-link:visited, .conversation-messages-link:active, .conversation-messages-link:hover{
+    text-decoration:none;
+}
+
+.conversation-profile-link:link, .conversation-profile-link:visited, .conversation-profile-link:active, .conversation-profile-link:hover {
+    color: darkcyan;
+}
+
+.conversation-messages-link:link, .conversation-messages-link:visited, .conversation-messages-link:active, .conversation-messages-link:hover{
+    color: rgba(83,104,142,0.8);
+
+}
+
+.conversation-message-wrapper {
+    margin-top: 7px;
+}
+
+.conversation-time-ago {
+    color: rgba(0,0,0,0.3);
+}
+
+.conversation-not-read {
+    font-weight: bold;
+}
+
+.conversation-header {
+    background-color:rgba(0,0,0,0.8) !important;
+    color:rgba(255,255,255,0.7);
+}
+
+.conversation-list-content p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.sconvo-profile {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/** single user profile page **/
+
+.user-single-profile-left-box-wrapper {
+    max-height: 550px !important;
+
+}
+
+@media screen and (max-width:600px){
+    .user-single-profile-left-box-wrapper {
+        margin:6px !important;
+    }
+
+    .user-single-profile-top-toolbar-wrapper{
+        margin:6px !important;
+    }
+}
+
+
+
+
+
+.user-single-profile-left-box-avatar{
+    display:block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.user-single-profile-left-box-button1, .user-single-profile-left-box-button2, .user-single-profile-left-box-button3,
+.user-single-profile-left-box-button4{
+    width: 85%;
+    text-align:left;
+}
+
+.user-single-profile-left-box-button2, .user-single-profile-left-box-button3{
+    margin: 7px auto;
+}
+
+.user-single-profile-left-box-button1 {
+    margin: 10px auto 7px auto;
+}
+
+.user-single-profile-left-box-button4{
+    margin:7px auto 15px auto;
+}
+
+.user-single-profile-top-toolbar-wrapper {
+    margin-top:0;
+}
+.user-single-profile-top-toolbar {
+    background-color: rgba(0,0,0,0.8); color: rgba(255,255,233,0.6); padding-bottom: 25px;
+}
+
+.user-single-profile-top-toolbar-personaname {
+    margin-bottom: 0;
+}
+
+.user-single-profile-top-toolbar-personalinfo {
+    color: rgba(255,255,233,0.2); margin-top: 0;
+}
+
+.user-single-profile-top-toolbar-steamicon2{
+    color:white !important;
+}
+
+.user-single-profile-top-toolbar-fab {
+    font-size: 0.7em;
+}
+
+.user-single-profile-section-header {
+    margin-bottom: 0px;
+    margin-left:0;
+    color: darkcyan;
+}
+
+.user-single-profile-section-subheader {
+    margin-bottom: 0px;
+    color: rgba(66,66,66,0.9);
+    margin-top: 3px;
+}
+
+.user-single-profile-section-text,.user-single-profile-section-text-missing {
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+.user-single-profile-section-text-missing{
+    color: pink;
+}
+
+.user-single-profile-section-text {
+    color: rgba(66,66,66,0.5);
+}
+
+.user-single-profile-section-recentlyplayed-wrapper {
+    margin-top:8px;
+}
+
+.user-single-profile-section-recentlyplayed, .user-single-profile-section-ownedgames {
+    width: 23.47%;
+    height: auto;
+    margin-left: 2px;
+}
+
+@media screen and (max-width: 600px) {
+    .user-single-profile-section-recentlyplayed, .user-single-profile-section-ownedgames {
+        width: 31.293333%;
+        height: auto;
+        margin-left: 2px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .user-single-profile-section-recentlyplayed, .user-single-profile-section-ownedgames {
+        width: 46.94%;
+        height: auto;
+        margin-left: 2px;
+    }
+}
+
+
+
+.user-single-profile-section-dota-subheader,.user-single-profile-section-csgo-subheader {
+    margin-bottom: 0;
+}
+
+.user-single-profile-section-dota-stats > div{
+    margin-right: 15px;
+}
+
+@media screen and (max-width:600px){
+    .user-single-profile-section-dota-stats > div >p{
+
+    }
+}
+
+@media screen and (max-width:600px){
+    .user-single-profile-section-dota-mode{
+        margin-left: 7px;
+    }
+}
+
+.user-single-profile-section-mmr-text {
+    width: 100% !important;
+    text-align:center;
+    background-color: rgba(0,150,136,0.7);
+    color:rgba(255,255,255,0.7);
+    margin-top:3px;
+}
+
+.user-single-profile-section-csgo-rank {
+    margin-top: 6px;
+    width: 100%;
+    height: auto;
+    margin-left: 2px;
+    margin-bottom:0;
+}
+
+.user-single-profile-section-csgo-column{
+
+}
+
+.user-single-profile-section-ownedgames-wrapper {
+    margin-top: 8px;
+}
+
+.user-single-profile-section-comments-header {
+    margin-left:12px;
+}
+
+.user-single-profile-section-comment-wrapper {
+     margin-top:15px;
+}
+
+.user-single-profile-section-comment-toolbar {
+    height:54px;
+}
+
+.user-single-profile-section-comment-toolbar-avatar {
+    width: 54px; height: 54px;
+}
+
+.user-single-profile-section-comment-toolbar-user {
+    background:rgba(0,0,0,0.7);
+    height:auto;
+}
+
+.user-single-profile-section-comment-toolbar-user-username {
+    padding:0;
+    margin: 11px 5px;
+    display:inline-block;
+    color:lightblue;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.user-single-profile-section-comment-toolbar-user-ago {
+    font-style:italic;
+    text-align: right;
+    font-size: 0.7em;
+    margin:13px 5px 11px 5px;
+    padding:0;
+    color:rgba(255,255,255,0.4);
+}
+
+.user-single-profile-section-comment-toolbar-user-btn{
+    border-radius:2px !important;
+}
+
+.user-friend-group-user-btn {
+    border-radius:2px !important;
+}
+
+.user-single-profile-section-comment-comment {
+    background-color: rgba(60,60,60,0.2);
+    font-size: 0.9em;
+    color:rgba(0,0,0,0.8);
+    margin:0;
+}
+
+.user-single-profile-section-comment-form-wrapper {
+    width: 96%;
+}
+
+.user-single-profile-section-comment-textarea {
+    width: 90%;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    height: 300px;
+    border-bottom: 1px solid #DDD;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+
+
+.user-single-profile-section-comment-sentnotify-wrapper {
+    margin-top: 25px;
+}
+
+.user-single-profile-section-comment-sentnotify {
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.user-single-profile-ection-comment-sentnotify-header {
+    display:inline-block;
+    color: white;
+}
+
+/** login modal **/
+
+.login-modal-wrapper {
+   background-color: darkcyan;
+}
+
+.login-modal {
+    width:500px;
+}
+
+.login-modal-content {
+
+    margin-bottom: 20px;
+}
+
+.login-modal-header {
+    text-align:center;
+    color:white;
+}
+
+/** message windows (both with subject and without subject) **/
+
+.message-window-form-container, .message-ns-window-wrapper {
+    width: 500px;
+}
+
+.message-window-subject-label, .message-window-body-label{
+    margin-bottom: 7px;
+}
+
+.message-window-input {
+    margin-bottom:10px; height: 34px;
+    width: 80%;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #DDD;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+.message-window-textarea, .message-ns-window-textarea, .settings-introduction-textarea {
+    width: 80%;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    height: 300px;
+    border-bottom: 1px solid #DDD;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+@media screen and (max-width: 688px){
+    .message-window-form-container, .message-ns-window-wrapper{
+        width: 90%;
+        margin: auto auto;
+        height: 600px;
+    }
+}
+
+/** settings page **/
+
+md-list md-list-item button.md-button:not([disabled]):hover {
+    background-color: rgba(0, 128, 128,0.2);
+}
+
+.active-tab, .active-tab:hover {
+    background-color: rgba(0, 128, 128,0.2);
+    color: rgb(0,150,136);
+}
+
+.settings-md-list > md-list-item:hover {
+    background-color: rgba(0, 128, 128,0.2);
+}
+
+.active-tab-icon {
+    background:transparent;
+    color: rgb(0,150,136);
+}
+
+@media screen and (max-width: 600px){
+    .settings-right-side p {
+        width: 100px;
+    }
+
+    .friends-list-avatar {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 488px){
+    .friends-non-add-btn{
+        display:none;
+    }
+}
+
+@media screen and (min-width: 488px){
+    .friends-action-menu-btn{
+        display:none;
+    }
+}
+
+@media screen and (min-width:300px) and (max-width: 400px){
+    .settings-right-side p {
+        width: 150px;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width: 500px){
+    .settings-right-side p {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width: 600px){
+    .settings-right-side p {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 594px) and (max-width: 750px){
+    .settings-right-side p {
+        width: 300px;
+    }
+}
+
+.settings-right-side p {
+
+}
+
+.settings-profile-headers{
+    padding-left: 12px;
+    margin-bottom: 0px;
+    color: darkcyan;
+}
+
+.settings-profile-link {
+    text-decoration: none;
+}
+
+.settings-autocomplete-container input{
+    margin-top: 10px;
+}
+
+/** friends **/
+
+
+.success-toast > .md-toast-content {
+    background-color: rgba(75,150,110,0.8);
+}
+
+.warning-toast > .md-toast-content {
+    background-color: rgba(219,163,103,0.9) !important;
+}
+
+.friends-pending-section {
+    background-color:white;
+    margin-bottom: 10px;
+}
+
+.friend-group-input-container > input {
+
+}
+
+.friends-pending-user {
+    width: 100%;
+    margin-bottom: 10px; margin-left: -12px;
+}
+
+@media screen and (min-width: 960px) and (max-width: 1277px){
+    .friends-list-section, .friends-pending-section {
+        width: 70%;
+    }
+
+  /*  .friends-pending-section {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }*/
+
+    .friends-pending-user {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 960px){
+    .friends-list-section, .friends-pending-section {
+        width: 70%;
+    }
+
+    /*
+    .friends-pending-section {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    */
+
+    .friends-pending-user {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 750px) and (max-width: 960px){
+    .friends-list-section, .friends-pending-section {
+        width: 85%;
+    }
+    /*
+
+    .friends-pending-section {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    */
+
+    .friends-pending-user {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 750px){
+    .friends-list-section, .friends-pending-section {
+        width: 100%;
+    }
+
+ /*   .friends-pending-section {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }*/
+
+    .friends-pending-user {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 330px) and (max-width: 600px){
+    .friends-list-section, .friends-pending-section {
+        width: 100%;
+    }
+
+  /*  .friends-pending-section {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }*/
+
+    .friends-pending-profile-btn{
+        text-align:center;
+    }
+
+    .friends-pending-profile-btn .md-ripple-container {
+
+        width: 36px !important; height: 35px; margin-left:10px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .friends-list-section, .friends-pending-section {
+        width: 100%;
+    }
+
+/*    .friends-pending-section {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }*/
+
+    .friends-pending-user {
+        width: 100%;
+    }
+
+    .friends-pending-avatar {
+        display:none;
+    }
+
+    .friends-pending-profile-btn {
+
+    }
+
+    button.friends-pending-action-btn{
+        display:block !important;
+        width: 100%;
+        margin-bottom: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .friends-pending-action-btn-container {
+        padding-bottom: 5px;
+    }
+
+    .friends-list-group-input{
+        width: 100% !important;
+    }
+}
+
+.friends-list-each{
+    height:52px;
+    color:rgba(25,54,95,0.7);
+    margin-bottom: 25px;
+}
+
+@media screen and (max-width:600px){
+    .friends-list-each{
+        height: 70px;
+    }
+}
+
+.friends-list-group-input-container{
+
+    margin-top:33px;
+}
+
+.toast-container >h4 {
+    margin: 10px 0 0 0;
+}
+
+.group-title {
+    color: rgba(66,66,66,0.7);
+}
+
+/** site footer **/
+
+.content-spacer {
+    margin-top:60px;
+    height: 50px;
+}
+
+.site-footer {
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.site-footer div {
+    font-size: 13px;
+}
+
+body {
+    padding-bottom: 200px;
+}
+
+.site-footer {
+    background-color: rgb(66,66,66) !important;
+}
+
+.site-footer a{
+    color: rgba(255,255,255,0.5);
+    text-decoration:none;
+}
+
+.site-footer-links {
+    list-style: none;
+    padding-top: 0;
+    padding-left:0;
+    margin: 5px 0 0 0;
+}
+
+
+
+.site-footer-divider{
+    color: rgba(255,255,255,0.3);
+}
+
+.footer-resource-links a{
+    text-decoration:none;
+    color: rgba(173,216,230,0.4);
+}
+
+.site-footer-text{
+    background-color: rgba(19,20,22,0.4);
+    color: rgb(84,87,92);
+    text-align:center;
+    margin-top: 15px;
+    padding-top: 15px !important;
+    padding-bottom: 15px;
+}
+
+.footer-resource-links h3{
+    margin-top: 15px;
+    margin-bottom:5px;
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-resource-links {
+    margin-left: 15px;
+}
+
+.footer-resource-links.navigation-links{
+    margin-left:0;
+}
+
+.footer-resource-links > ul{
+    padding-left:0;
+    list-style-type: none;
+}
+
+.resources {
+    padding-right: 12px;
+}
+
+/*.footer-resource-links li:not('.exclude-from-margin'){
+    margin-top: 10px;
+}*/
+
+.exclude-from-margin{
+    float:left;
+    margin-right: 6px;
+}
+
+.exclude-from-margin li, .list-container-li > li {
+
+}
+
+
+
+
+@media screen and (max-width: 1134px){
+ /*   .footer-resource-links {
+        margin-left: 0;
+        margin-top: 20px;
+    }*/
+}
+
+.inline-list {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.inline-list li{
+    list-style:none;
+}
+
+.inline-list ul {
+    padding-left:0;
+    margin-right: 5px;
+}
+
+.site-footer-divider-wrapper {
+    width: 5px !important;
+    padding-top: 15px;
+}
+
+.site-footer-divider {
+    border-right: 1px solid rgba(83,87,81,0.7);
+}
+    /** privacy policy **/
+
+.privacy-policy-wrapper {
+    background-color: white;
+    margin: 40px;
+}
+
+.privacy-policy-list > li {
+    margin-left: 20px;
+}
+
+@media screen and (max-width:959px){
+    .footer-resource-links {
+        margin-left: 0px;
+    }
+
+    body {
+        padding-bottom: 410px;
+    }
+}
+
+@media screen and (min-width:958px) and (max-width: 1280px){
+    body {
+        padding-bottom: 255px;
+    }
+}
+
+@media screen and (max-width:380px){
+    body {
+        padding-bottom: 425px;
+    }
+}
+
+@media screen and (max-width:350px){
+    body {
+        padding-bottom: 520px;
+    }
+}
+
+/** disclaimer **/
+
+.disclaimer-wrapper {
+    background-color: white;
+    margin:40px;
+}
+
+.disclaimer-wrapper p:not(:last-child){
+    margin-bottom: 0 !important;
+    padding-bottom:0 !important;
+}
+
+/** contact us **/
+
+.contactus-wrapper {
+    background-color: white;
+}
+
+/** how to home page **/
+
+
+.jumbotron{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
+    /*
+    background: #7d7e7d; !* Old browsers *!
+    background: -moz-linear-gradient(left,  #7d7e7d 0%, #0e0e0e 100%); !* FF3.6-15 *!
+    background: -webkit-linear-gradient(left,  #7d7e7d 0%,#0e0e0e 100%); !* Chrome10-25,Safari5.1-6 *!
+    background: linear-gradient(to right,  #7d7e7d 0%,#0e0e0e 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); !* IE6-9 *!
+    */
+
+
+    background: rgba(81,95,144,0.2);
+
+
+    font-family: 'Droid sans', sans-serif; font-weight: bold;
+    color: rgba(255,255,255,0.9);
+    padding-bottom:15px;
+
+}
+
+.jumbotron-btn{
+
+    padding: 10px 10px 0 10px;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.jumbotron-1st-btn{
+    background-color: rgba(220, 0, 30,0.6);
+}
+
+
+
+
+/*.jumbotron:before {
+    position:absolute;
+    content:' ';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image:url('/images/tomclancy.jpg');
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat:no-repeat;
+    opacity:0.2;
+    color:black;
+}*/
+
+.jumbotron a {
+    text-decoration:none;
+    color: white;
+}
+
+.jumbotron a:hover {
+    color: rgba(255,255,255,0.4);
+}
+
+.jumbotron h1 {
+    font-size: 4em;
+    text-align:center;
+}
+
+@media screen and (max-width: 600px) {
+    .jumbotron h1{
+        font-size: 2em;
+        text-align:center;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width: 960px) {
+    .jumbotron h1{
+        font-size: 2em;
+        text-align:center;
+    }
+}
+
+.how-to-search-button {
+    margin-top: 60px; margin-bottom: 25px;
+}
+
+
+.how-to-partition {
+    text-align:center;
+}
+
+.how-to-icon {
+    font-size: 3em;
+    display:block;
+    margin-bottom: 25px;
+    color: white;
+    text-align:center;
+    width: 3em;
+}
+
+.how-to-header3{
+    margin-top: 10px;
+    text-align:center;
+}
+
+.how-to-faq-section {
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.how-to-faq-section > div {
+    background: rgba(66,66,66,0.3);
+   /* background-color: rgb(0,150,136);*/
+}
+
+.how-to-faq-section p{
+    color:white;
+}
+
+.how-to-faq-header {
+    color: white;
+    margin-bottom:0;
+}
+
+.how-to-faq-header-h6{
+    margin-bottom:0;
+    color:rgba(255,255,255,0.6);
+}
+
+
+
+@media screen and (max-width:600px){
+    .how-to-faq-section {
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+
+}
+
+.spinner-hide .loading{
+    visibility: visible;
+}
+.spinner-show .loading{
+    visibility: hidden;
+}
+
+/** quick matchmakign page **/
+
+.qcm-personaname {
+    color: rgba(25,54,95,0.7);
+}
+
+.qcm-personaname:hover {
+    color: rgba(25,54,95,1);
+}
+
+.qcm-personaname, .qcm-personaname {
+    margin:0;
+    margin-top: 15px;
+    margin-left: 10px;
+    padding: 0;
+}
+
+.qcm-personalinfo {
+    margin-left: 10px;
+}
+
+md-autocomplete.qcm-autocomplete input{
+    margin-top: 10px;
+}
+
+.qcm-autocomplete-container{
+    margin-top: 15px;
+}
+
+.giveaway-banner {
+    background-color: rgba(0,150,136,0.4);
+}
+
+a.giveaway-banner-link{
+    color:lightblue;
+    text-decoration:underline;
+}
+
+
+
+
+/** user posts page **/
+
+.user-posts-search-left, .user-posts-search-right, .user-posts {
+    background-color: white;
+}
+
+
+
+.wants-form-wrap h2, h2.wants-full-post-h2{
+    font-size: 0.8em;
+    font-weight: 500;
+    color: rgb(0,150,136);
+}
+
+.wants-form-wrap h2>span{
+    color: rgba(66,66,66,0.6);
+}
+
+.wants-form-wrap md-autocomplete-wrap > input , .user-posts-input, .user-posts-form-select, .user-posts-input-age{
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding-left: 5px !important;
+    border: 1px solid #b7b7b7 !important;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(252,252,252,1);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.wants-form-wrap md-autocomplete-wrap > input:disabled , .user-posts-input:disabled {
+    background-color: rgba(66,66,66,0.2);
+}
+
+.wants-fullpost-header-wrap{
+    margin-bottom:0;
+}
+
+.wants-fullpost-h3 {
+    color :rgba(25,54,95,0.7);
+    padding:0;
+    margin:0;
+}
+
+.wants-fullpost-h5{
+    color: rgba(66,66,66,0.4);
+}
+
+.wants-fullpost-h3 > span,.wants-full-post-game-specifics-h3 {
+    color: rgba(66,66,66,1);
+}
+
+.wants-fullpost-modal:before {
+    display:none;
+}
+
+.wants-full-post-game-specific-items > p{
+    margin-bottom: 0;
+    margin-top:0;
+}
+
+.user-posts-input-age {
+    margin-right: 5px;
+}
+
+.user-post-between-age {
+    padding:0;
+    margin: 0;
+
+    margin-right: 5px;
+    margin-top:2px;
+}
+
+.wants-form-wrap md-autocomplete-wrap > input[disabled="disabled"]{
+    background-color: rgba(66,66,66,0.2);
+    color: white !important;
+
+}
+
+.wants-form-wrap md-chips-wrap, .wants-form-wrap md-chips md-chips-wrap {
+
+    border-bottom-style: none !important;
+}
+
+.md-chip {
+    background-color: rgba(66,66,66,0.8) !important;
+    color: white !important;
+    outline: none !important;
+}
+
+.md-chip md-icon {
+    color: rgba( 255,255,255,0.7);
+}
+
+.md-chips-wrap {
+    border-bottom-style: none;
+    outline-style: none;
+
+}
+
+.wants-form-wrap md-autocomplete {
+    width: 250px;
+}
+
+.user-posts-game-specific-fields-h3{
+    margin-top:20px;
+    margin-bottom:15px;
+    font-size: 1em;
+   background-color:rgba(194,208,214,0.6);
+    padding: 5px;
+    border-radius: 2px;
+    display:inline-block;
+    margin-right: 5px;
+}
+
+.user-posts-game-specific-fields-h4 {
+    overflow:auto;
+}
+
+.user-posts-game-specific-fields-h4:hover {
+    background-color: rgba(48, 63, 116,0.3);
+}
+
+.user-posts-game-specific-fields-h4 > md-icon {
+    color: white;
+}
+
+.game-fields-dropdown {             /** make the checkbox disappear to make it look like a button **/
+    position: absolute;
+    left: -50px;
+}
+
+.user-posts-time {
+    color: rgba(66,66,66,0.4);
+
+}
+
+.user-posts-full-link {
+    color: deepskyblue;
+    text-decoration:none;
+}
+
+.user-posts-full-link:visited {
+    color: deepskyblue;
+}
+
+
+
+.user-posts-action h3{
+    margin:0;
+    margin-left: 5px;
+}
+
+
+.user-posts-action h3, .wants-reddit-message-h3{
+    color: rgba(25,54,95,0.7);
+}
+
+.user-posts-action h3:hover {
+    color: rgba(25,54,95,1);
+}
+
+.user-posts-action span{
+    color: rgba(0,150,136,0.7);
+    font-size: 1em;
+    text-align:center;
+}
+
+.user-posts {
+    border-radius:6px;
+}
+
+.user-fullpost-modal {
+    position:fixed;
+    z-index:10000;
+    overflow-y:scroll;
+    top:10%;
+}
+
+@media screen and (min-width:1280px){
+    .user-fullpost-modal {
+
+        width: 50%;
+        left: 27.5%;
+
+
+    }
+}
+
+@media screen and (min-width:960px) and (max-width:1280px){
+    .user-fullpost-modal {
+
+        width: 83%;
+        left: 12.5%;
+
+    }
+}
+
+@media screen and (max-width:960px){
+    .user-fullpost-modal {
+        width: 92%;
+        left: 7.5%;
+    }
+}
+
+
+
+.user-posts-personal {
+    margin-top: 0;
+    color: rgba(0,0,0,.47);
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+.user-full-posts-personal{
+    margin-left: 0;
+
+}
+
+.user-posts-arrow {
+    font-size: 2em;
+    color: rgba(0,150,136,0.7);
+}
+
+
+
+.user-posts-game-name {
+    margin-top:0;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-right: 2px solid rgba(66,66,66,0.3);
+    border-bottom: 2px solid rgba(66,66,66,0.3);
+    border-left: 2px solid rgba(66,66,66,0.1);
+    border-top:2px solid rgba(66,66,66,0.1);
+    background: rgba(66,66,66,0.1);
+
+    box-shadow: 0px 0px 8px rgba(66,66,66,0.1) inset;
+    -moz-box-shadow: 0px 0px 8px rgba(66,66,66,0.1) inset;
+    -webkit-box-shadow: 0px 0px 8px rgba(66,66,66,0.1) inset;
+    padding: 3px;
+/*    margin-bottom: 5px;*/
+    color: rgba(0,150,136,0.7);
+    font-size: 0.75em;
+
+}
+
+
+
+.user-posts-action-btn:nth-child(1) {
+    margin-top: 0;
+}
+
+.user-posts-action-btn {
+    text-align:left;
+}
+
+.user-posts-action-btn span {
+    padding-left: 9px;
+}
+
+.user-posts-text{
+    /** inner box-shadow effect enjoycss.com **/
+
+    font-family:Verdana, sans-serif;
+    font-size: 0.8em;
+    background: rgba(194,208,214,0.47);
+    -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5) inset;
+    box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5) inset;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.user-posts-game-specific-fields, .user-posts-uniquekey {
+    background: rgba(194,208,214,0.3);
+}
+
+.user-posts-game-specific-fields h6 {
+    color: rgba(66,66,66,0.4);
+}
+
+.user-posts-text, .user-posts-game-specific-fields, .user-posts-uniquekey {
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+   /* width: 160px;
+    padding: 20px;*/
+    padding:16px 5px 16px 10px;
+    overflow: hidden;
+    border: none;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: rgba(66,66,66,0.7);
+   /* text-align: center;*/
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.user-posts-self-text {
+    color: rgba(66,66,66,1);
+}
+
+md-autocomplete.user-posts-form-autocomplete > md-autocomplete-wrap > input:disabled {
+    color: rgb(84,84,84) !important;
+}
+
+
+
+.user-posts-form-select {
+    border:1px solid rgba(66,66,66,0.4);
+    border-radius: 3px;
+    margin-top:1px;
+    width: 83%;
+    height:40px;
+}
+
+.user-posts-form-select > md-select-value {
+    margin-top: 3px;
+}
+
+.user-posts-form-select > .md-select-value >div {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.helper-text {
+    color: rgba(66,66,66,0.6);
+}
+
+.md-select-value *:first-child {    /** create elipsis on overflowing selected md-select ***/
+    width: calc(100% - 24px);
+}
+
+
+.user-posts-form-select >md-select-value, .user-posts-form-select >md-select-value:focus,  .user-posts-form-select >md-select-value:active,
+.user-posts-form-select:not([disabled]):focus .md-select-value{    /** this is the green line thing for input fields in angular material **/
+    border-bottom: none;
+    border-bottom-width: 0;
+}
+
+.user-posts-form-select[disabled='disabled']{
+    background-color: rgba(66,66,66,0.2);
+}
+
+md-select.user-posts-form-select[disabled='disabled'] > md-select-value {
+    color: rgb(84,84,84);
+}
+
+md-option[selected='selected']>div.md-ripple-container, md-option[selected='selected']{
+    background-color: rgba(188,143,143,.3) !important;
+}
+
+.user-posts-checkbox span {
+    width: 100% !important;
+}
+
+.user-posts-input {
+    height: 40px;
+}
+
+textarea.user-posts-input {
+    height: 200px;
+}
+
+md-icon.wants-reddit-message-close{
+    background-color: rgba(48, 63, 116,0.2);
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid rgba(66,66,66,0.2);
+}
+md-icon.wants-reddit-message-close:hover {
+    background-color: #D1D1A9;
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid rgba(66,66,66,0.2);
+}
+
+
+
+
+/** testing **/
+
+.md-tab {
+    /*background-color:rgba(0,0,0,0.8) !important;
+    color:rgba(255,255,255,1); !important;*/
+}
+
+md-menu.md-menu {
+    margin: auto 0;
+    padding:0;
+}
+
+div.md-label > span.ng-scope {
+    display:inline-block;
+    width: 160px;
+}
+
+.he > span{
+    padding:0 !important;
+}
+
+@-moz-document url-prefix() {
+    img{
+        width: auto;
+        max-width: 100%;
+        height:auto;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 600px) {
+    .user-single-profile-section-csgo-rank {
+        width: 70%;
+    }
+}

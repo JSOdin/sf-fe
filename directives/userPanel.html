@@ -1,0 +1,86 @@
+<md-card  layout="column" class="md-whiteframe-2dp user-card" flex-xl="25" flex-lg="30" flex-md="45" flex-sm="100" flex-xs="100" class="user-card">
+    <md-content class="user-card-upper-panel" flex="33">
+        <div layout="row" layout-align="space-between">
+            <md-button aria-label="..." class="md-primary md-raised" ng-click="addFriend(user,$event)" ng-if="!cancel && !friend">
+                <md-icon>add</md-icon>
+                <md-tooltip>Add friend</md-tooltip>
+            </md-button>
+            <md-button aria-label="..." class="md-primary md-raised" ng-click="cancelAddFriend(user,$event)" ng-if="cancel">Cancel Request</md-button>
+            <md-button aria-label="..." class="md-primary md-raised" ng-if="friend">&nbsp; Friend</md-button>
+            <md-button  ng-if="canAddOnSteam" aria-label="..." class="md-accent md-raised" layout="row" layout-align="center center" ng-click="addOnSteam(user.addfriendurl,$event)" ><md-icon class="icon-steam2"></md-icon>
+                <md-tooltip>Add on steam</md-tooltip>
+            </md-button>
+        </div>
+
+    </md-content>
+    <img ng-src="{{user.avatarmedium}}" class="user-card-avatar" />
+
+    <div layout="column" layout-align="center center" flex>
+
+        <h3 class="user-card-username-h3"><a href="{{'/find-steam-friend/'+user.userPageID}}" ng-click="goToState(user.userPageID,$event)">{{user.personaname}}</a></h3>
+
+        <p class="user-card-country-language"><span ng-if="user.personal.country">{{user.personal.country}} &middot;</span><span ng-if="user.personal.birthdate|| user.personal.gender"> {{user.age}} {{user.personal.gender}} </span><span ng-if="user.personal.language"> &middot; {{user.personal.language}}</span></p>
+
+
+    </div>
+    <div layout="row" class="user-card-summary" layout-align="start" flex="10">
+        <div layout="column" layout-margin ng-if="user.general.region">
+            <h5 class="user-card-solo-mmr-h5">Region</h5>
+            <p class="user-card-solo-mmr-p">{{user.general.region}}</p>
+        </div>
+        <div layout="column" layout-margin ng-if="user.general.intent">
+            <h5 class="user-card-solo-mmr-h5">Looking For</h5>
+            <p class="user-card-solo-mmr-p">{{user.general.intent}}</p>
+        </div>
+    </div>
+    <div layout="row" class="user-card-summary" layout-align="start" flex="10" ng-if="usersCtrl.showCsgoForms">
+        <div layout="column" hide-md layout-margin ng-if="user.csgo.role">
+            <h5 class="user-card-solo-mmr-h5">Preferred Role</h5>
+            <p class="user-card-solo-mmr-p">{{user.csgo.role}}</p>
+        </div>
+        <div layout="column" layout-margin ng-if="user.csgo.rank && !user.settings.user.noDisplayStats">
+            <h5 class="user-card-solo-mmr-h5">Rank</h5>
+            <p class="user-card-solo-mmr-p">{{user.csgo.rank}}</p>
+        </div>
+        <!--<div layout="column" layout-margin ng-if="user.dota.serverregion">
+            <h5 class="user-card-solo-mmr-h5">Server Region</h5>
+            <p class="user-card-solo-mmr-p">{{user.dota.serverregion}}</p>
+        </div>
+        <div layout="column" hide-sm hide-md hide-lg hide-gt-lg layout-margin ng-if="user.dota.position">
+            <h5 class="user-card-solo-mmr-h5">Position</h5>
+            <p class="user-card-solo-mmr-p">{{user.dota.position}}</p>
+        </div>-->
+    </div>
+    <div layout="row" class="user-card-summary" layout-align="start" flex="10" ng-if="usersCtrl.showDotaForms">
+        <div layout="column" hide-md layout-margin ng-if="user.dota.rank.solommr && !user.settings.user.noDisplayStats">
+            <h5 class="user-card-solo-mmr-h5">Solo MMR</h5>
+            <p class="user-card-solo-mmr-p">{{user.dota.rank.solommr}}</p>
+        </div>
+        <div layout="column" layout-margin ng-if="user.dota.rank.partymmr && !user.settings.user.noDisplayStats">
+            <h5 class="user-card-solo-mmr-h5">Party MMR</h5>
+            <p class="user-card-solo-mmr-p">{{user.dota.rank.partymmr}}</p>
+        </div>
+        <div layout="column" layout-margin ng-if="user.dota.serverregion">
+            <h5 class="user-card-solo-mmr-h5">Server Region</h5>
+            <p class="user-card-solo-mmr-p">{{user.dota.serverregion}}</p>
+        </div>
+        <div layout="column" hide-sm hide-md hide-lg hide-gt-lg layout-margin ng-if="user.dota.position">
+            <h5 class="user-card-solo-mmr-h5">Position</h5>
+            <p class="user-card-solo-mmr-p">{{user.dota.position}}</p>
+        </div>
+    </div>
+    <div layout="row" class="user-card-summary" layout-align="start" flex="10" ng-if="!usersCtrl.showCsgoForms && !usersCtrl.showDotaForms">
+    </div>
+
+    <div layout="row" layout-wrap layout-padding class="user-card-recentlyPlayed-wrapper">
+        <md-tooltip md-direction="top">Recently played games</md-tooltip>
+        <img hide-sm class="user-card-recentlyPlayed" ng-repeat="game in user.recentlyPlayed | imgfilter |limitTo:4"  fallback-src="/images/fallback.jpg"  ng-src="{{game.img_logo_url}}"/>
+    </div>
+
+    <div layout="row">
+       <!-- <md-button aria-label="..." class="md-raised" ng-href="{{user.profileurl}}" hide-sm>Steam Profile</md-button>-->
+        <md-button aria-label="..." class="md-raised" ng-click="goToState(user.userPageID,$event)">Site Profile</md-button>
+        <div class="user-status-container"><img  class="user-status-img" ng-src="{{'http://steamsignature.com/status/english/'+user.steamid+'.png'}}"  alt="" title="" spinneronload /><md-tooltip>User status is refreshed every 30 minutes.</md-tooltip></div>
+        <div class="loading" style="width:100%;" ><img src="/images/spinner2.gif" class="spinner-gif"  /></div>
+    </div>
+</md-card>

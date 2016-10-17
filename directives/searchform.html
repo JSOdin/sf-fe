@@ -1,0 +1,159 @@
+
+<div layout="column" flex-xl="20" flex-lg="20" flex-md="30"  flex-sm="40" flex-xs="90" style="position:relative">
+    <div class="users-toast">
+
+    </div>
+    <md-card>
+        <md-content layout-padding md-theme="docs-dark">
+            <h1 style="font-size:0.8em;">Steam User - Listing Users For {{usersCtrl.section}}</h1>
+
+        </md-content>
+        <md-card-content class="md-padding search-form-card" layout="column" > <!-- dont know what md-padding is -->
+
+                <md-input-container>
+                    <label>country</label>
+                    <md-autocomplete class="search-form-autocomplete" md-selected-item-change="usersCtrl.bindToModel('country',usersCtrl.selectedItemCountry.value)" md-selected-item="usersCtrl.selectedItemCountry" md-search-text="usersCtrl.searchTextCountry" md-no-cache="true" md-items="item in usersCtrl.querySearch(usersCtrl.searchTextCountry, usersCtrl.countries)" md-item-text="item.display">
+                        <md-item-template>
+                            <span md-highlight-text="usersCtrl.searchTextCountry" md-highlight-flags="^i">{{item.display}}</span>
+                        </md-item-template>
+                        <md-not-found>
+                            Country not found.
+                        </md-not-found>
+                    </md-autocomplete>
+
+                </md-input-container>
+
+                <md-input-container>
+                    <label>language</label>
+                    <md-autocomplete  class="search-form-autocomplete" md-selected-item-change="usersCtrl.bindToModel('language',usersCtrl.selectedItemLanguage.value)" md-selected-item="usersCtrl.selectedItemLanguage" md-search-text="usersCtrl.searchTextLanguage" md-items="item in usersCtrl.querySearch(usersCtrl.searchTextLanguage, usersCtrl.languages)" md-item-text="item.display">
+                    <md-item-template>
+                        <span md-highlight-text="usersCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        No criteria found.
+                    </md-not-found>
+                </md-autocomplete></md-input-container>
+
+
+
+
+                <md-input-container>
+                    <md-select aria-label="..." ng-model="usersCtrl.region" md-on-close="usersCtrl.bindToModel('geoRegion',usersCtrl.region)">
+                        <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.regions">{{opt.display}}</md-option>
+                    </md-select>
+                    <label>Region</label>
+                </md-input-container>
+
+
+
+
+                <md-input-container>
+                    <md-select aria-label="..." ng-model="usersCtrl.aim" md-on-close="usersCtrl.bindToModel('lookingfor',usersCtrl.aim)">
+                        <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.intents">{{opt.display}}</md-option>
+                    </md-select>
+                    <label>Looking For</label>
+                </md-input-container>
+
+           <!-- <md-input-container ng-if="usersCtrl.showDotaForms">
+                <md-select aria-label="..." ng-model="usersCtrl.server" md-on-close="usersCtrl.bindToModel('serverRegion',usersCtrl.server)">
+                    <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.servers">{{opt.display}}</md-option>
+                </md-select>
+                <label>Dota 2 Server Region</label>
+            </md-input-container>
+            -->
+
+
+
+
+               <!-- <md-input-container>
+                    <md-select aria-label="..." ng-model="usersCtrl.gender">
+                        <md-option value="" selected>Both</md-option>
+                        <md-option value="male">Male</md-option>
+                        <md-option value="female">Female</md-option>
+                    </md-select>
+                    <label>Gender</label>
+                </md-input-container>-->
+                <md-input-container>
+                    <md-select aria-label="..." ng-model="usersCtrl.age" md-on-close="usersCtrl.bindToModel('ageRange',usersCtrl.age)">
+                        <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.ages">{{opt.display}}</md-option>
+                    </md-select>
+                    <label>Age</label>
+                </md-input-container>
+            <!--<md-input-container>
+                <md-select aria-label="..." ng-model="usersCtrl.region" md-on-close="usersCtrl.bindToModel('geoRegion',usersCtrl.region)">
+                    <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.regions">{{opt.display}}</md-option>
+                </md-select>
+                <label>Region</label>
+            </md-input-container-->
+
+                    <md-input-container ng-show="usersCtrl.showDotaForms">
+                        <md-select aria-label="..." ng-model="usersCtrl.server" md-on-close="usersCtrl.bindToModel('serverRegion',usersCtrl.server)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.servers">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>Dota 2 Server Region</label>
+                    </md-input-container>
+                    <md-input-container ng-show="usersCtrl.showDotaForms">
+                        <md-select aria-label="..." ng-model="usersCtrl.intent"  md-on-close="usersCtrl.bindToModel('typeOfPlay',usersCtrl.intent)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.dotamodes">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>Dota 2 Type of Play</label>
+                    </md-input-container >
+                    <md-input-container ng-show="usersCtrl.intent == 'ranked matchmaking'" >
+                        <md-select aria-label="..." ng-model="usersCtrl.solommr" md-on-close="usersCtrl.bindToModel('soloNumber',usersCtrl.solommr)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.solommrs">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>Dota 2 Solo MMR</label>
+                    </md-input-container>
+                    <md-input-container ng-show="usersCtrl.intent == 'ranked matchmaking'">
+                        <md-select aria-label="..." ng-model="usersCtrl.partymmr" md-on-close="usersCtrl.bindToModel('partyNumber',usersCtrl.partymmr)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.partymmrs">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>Dota 2 Party MMR</label>
+                    </md-input-container>
+                    <md-input-container ng-show="usersCtrl.intent == 'ranked matchmaking'">
+                        <md-select aria-label="..." ng-model="usersCtrl.position" md-on-close="usersCtrl.bindToModel('preferredPosition',usersCtrl.position)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.dotaroles">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>Dota 2 Position</label>
+                    </md-input-container>
+
+                    <md-input-container ng-show="usersCtrl.showCsgoForms">
+                        <md-select aria-label="..." ng-model="usersCtrl.csgorank" md-on-close="usersCtrl.bindToModel('csgoLeague',usersCtrl.csgorank)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.csgoranks">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>CS:GO Rank</label>
+                    </md-input-container>
+                    <md-input-container ng-show="usersCtrl.showCsgoForms">
+                        <md-select aria-label="..." ng-model="usersCtrl.csgomatchmaking"  md-on-close="usersCtrl.bindToModel('csgoTypeOfPlay',usersCtrl.csgomatchmaking)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.csgomodes">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>CS:GO Gameplay Mode</label>
+                    </md-input-container >
+                    <md-input-container ng-show="usersCtrl.showCsgoForms" >
+                        <md-select aria-label="..." ng-model="usersCtrl.howlong" md-on-close="usersCtrl.bindToModel('csgoExperience',usersCtrl.howlong)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.howlongs">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>CS:GO Experience</label>
+                    </md-input-container>
+                    <md-input-container ng-show="usersCtrl.showCsgoForms">
+                        <md-select aria-label="..." ng-model="usersCtrl.csgorole" md-on-close="usersCtrl.bindToModel('csgoPosition',usersCtrl.csgorole)">
+                            <md-option selected ng-value="opt.value" ng-repeat="opt in usersCtrl.csgoroles">{{opt.display}}</md-option>
+                        </md-select>
+                        <label>CS:GO Preferred Role</label>
+                    </md-input-container>
+
+                <md-input-container>
+                    <md-select aria-label="..." ng-model="usersCtrl.comm" md-on-close="usersCtrl.bindToModel('communication',usersCtrl.comm)">
+                        <md-option selected ng-value="opt.value"  ng-repeat="opt in usersCtrl.communications">{{opt.display}}</md-option>
+                    </md-select>
+                    <label>Communication</label>
+                </md-input-container>
+                <div layout="row" layout-align="space-between">
+                    <md-button class="md-raised" ng-click="usersCtrl.resetFields($event)">Reset</md-button>
+                    <md-button class="md-raised"  ng-click="usersCtrl.sendFormData($event)">Filter</md-button>
+                </div>
+
+        </md-card-content>
+    </md-card>
+</div>
+

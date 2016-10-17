@@ -1,0 +1,36 @@
+
+
+<nav layout="row"  layout-wrap layout-margin layout-align="center center">
+    <div flex-gt-lg="{{loggedin? 30:15}}" flex-lg="{{loggedin? 40: 20}}" flex-md="{{loggedin? 50:35}}" flex-sm="{{loggedin?60:40}}" flex-xs="{{loggedin?100:60}}" class="menu-box" layout="row" style="padding-top:5px; padding-bottom: 2px;" layout-align="space-around" >
+        <div layout-margin flex="25" layout="column" layout-align="start center" class="menu-btn" ng-click="gotoState('wantstoplay')">
+
+            <i class="material-icons material-icons-games">create</i>
+            <p class="top-menu-header">User posts</p>
+        </div>
+        <div layout-margin  flex="25"  layout="column" layout-align="center center" class="menu-btn" ng-click="gotoState('games')">
+
+            <i class="material-icons material-icons-games">games</i>
+            <p class="top-menu-header">Games Directory</p>
+        </div>
+        <div layout-margin flex="25"  layout="column" layout-align="center center" class="menu-btn" ng-click="game ? gotoState('searchbygame',game):gotoState('users')">
+
+            <i class="material-icons material-icons-public">public</i>
+            <p class="top-menu-header">Users Directory</p>
+        </div>
+        <div layout-margin flex="25" layout="column" layout-align="start center" class="menu-btn" ng-click="gotoState('quickmatch')" ng-show="loggedin">
+
+            <i class="material-icons material-icons-schedule">schedule</i>
+            <p class="top-menu-header">Quickmatch</p>
+        </div>
+        <div layout-margin flex="25"  layout="column" layout-align="start center" class="menu-btn" ng-click="gotoState('friends')" ng-show="loggedin" hide-xs >
+
+            <i class="material-icons material-icons-tag-faces">tag_faces</i>
+            <p class="top-menu-header">Friends</p>
+        </div>
+      <!--  <div layout-margin layout="column" layout-align="center center" ng-click="gotoState('settings')" hide-sm hide-xs ng-show="loggedin">
+            <br>
+            <i class="icon-settings"></i>
+            <p class="top-menu-header">Settings</p>
+        </div>-->
+    </div>
+</nav>
